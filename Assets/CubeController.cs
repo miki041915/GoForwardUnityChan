@@ -29,8 +29,12 @@ public class CubeController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         GetComponent<AudioSource>().Play();
+        if(coll.gameObject.tag == "Player")
+        {
+            GetComponent<AudioSource>().volume = 0;
+        }
     }
 }
